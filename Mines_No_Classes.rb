@@ -99,9 +99,11 @@ def print_solution_cell(board,i, j)
     print " \t"
   when (1..9)
     print "#{board[i][j]}\t"
+  when 10
+    print " \t"
   when (11..19)
     print "#{board[i][j]-10}\t"
-  when (20.99)
+  when (20..99)
     print "#{board[i][j]-25}\t"
   else
     print "*\t"
@@ -193,11 +195,11 @@ def setup_game()
   zerolist = Array.new
   done = false
   while !done
-    print "How many rows (Enter 2 to 15)? "
+    print "How many rows (Enter 2 to 10)? "
     rows = $stdin.gets.chomp.to_i
     print "How many columns (Enter 2 to 10)? "
     cols = $stdin.gets.chomp.to_i
-    if rows.between?(2,15) && cols.between?(2,10)
+    if rows.between?(2,10) && cols.between?(2,10)
       print "How many bombs? "
       bombs = $stdin.gets.chomp.to_i
       if bombs > (rows*cols*0.50)
